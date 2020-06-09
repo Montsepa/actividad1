@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Actividad 1</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Actividad 1</h1>
+        <div class="row">
+            <div class="col">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Selecciona una región económica
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a id="boton1" class="dropdown-item" href="#">1. Union Europea</a>
+                      <a id="boton2" class="dropdown-item" href="#">2. TLCAN</a>
+                      <a id="boton3" class="dropdown-item" href="#">3. Mercosur</a>
+                      <a id="boton4" class="dropdown-item" href="#">4. Comunidad Andina</a>
+                      <a id="boton5" class="dropdown-item" href="#">5. APEC</a>
+                      <a id="boton6" class="dropdown-item" href="#">6. SADC</a>
+                      <a id="boton7" class="dropdown-item" href="#">7. MCCA</a>
+                      <a id="boton8" class="dropdown-item" href="#">8. Alianza del pacífico</a>
+                      <a id="boton9" class="dropdown-item" href="#">9. ASEAN</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">            
+            <div class="col" id="mapa"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2 id="titulo"></h2>
+                <p id="descripcion"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+          Datos Generales
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Violeta Montserrat Pérez Álvarez</h5>
+          <p class="card-text">
+              <b>ID:</b> 00614044<br>
+              <b>Materia:</b> Entorno Económico Global<br>
+              <b>Tema:</b> Regiones económicas del mundo<br>
+              <b>Prof.:</b> Rogelio Lara
+          </p>
+        </div>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages':['geochart'],
+            // Note: you will need to get a mapsApiKey for your project.
+            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+
+        var options = {};
+            
+        google.charts.setOnLoadCallback(() => dibujarMapa([['Pais']]));
+
+        // Dibuja el mapa a traves de la data
+        function dibujarMapa(data) {
+            var dataEmpty = google.visualization.arrayToDataTable(data);
+                
+            var chart = new google.visualization.GeoChart(document.getElementById('mapa'));    
+            chart.draw(dataEmpty, options);
+        }
+      </script>
+
+    <script type="text/javascript">
+        $(() => {
+            const title = 'Características de ';
+
+            // Regiones economicas
+            const region1 = {
+                title: 'Unión Europea',
+                data: [
+                    ['Pais'],
+                    ['Sweden'],
+                    ['Finland'],
+                    ['Estonia'],
+                    ['Latvia'],
+                    ['Lithuania'],
+                    ['Poland'],
+                    ['Slovakia'],
+                    ['Czech Republic'],
+                    ['Hungary'],
+                    ['Romania'],
+                    ['Bulgaria'],
+                    ['Greece'],
+                    ['Cyprus'],
+                    ['Croatia'],
+                    ['Slovenia'],
+                    ['Austria'],
+                    ['Italy'],
+                    ['Germany'],
+                    ['Denmark'],
+                    ['Netherlands'],
+                    ['Belgium'],
+                    ['France'],
+                    ['Spain'],
+                    ['Portugal'],
+                    ['Ireland']
+                ],
+                desc: '1.- Es una asociación económica y política única en su género y compuesta por 27 países europeos.<br>2.- Se creó en 1958.<br>3.- El 31 de enero del 2020 el Reino Unido abandonó la Unión Europea.<br>4.- Se ha convertido en una organización activa en todos los frentes políticos.<br>5.- El cambio de nombre de Comunidad Económica Europea a Unión Europea, en 1993 no hizo sino reflejar esta transformación.<br>6.- Es el mayor bloque comercial del mundo y primera exportadora mundia de productos manufacturados y servicios.'
+                
+            };
+
+            const region2 = {
+                title: 'TLCAN',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['Canada'],
+                    ['United States'],
+                    ['Mexico']                   
+                ],
+                desc: '1.- Las reglas disponen cómo y cuándo se eliminarán las barreras arancelarias para conseguir la libre circulación de los productos y servicios entre las tres naciones; zona de libre comercio.<br>2.- El tratado fue firmado en noviembre de 1993 y entró en vigor el primero de enero de 1994.<br>3.- También se le conoce como NAFTA, que corresponde a las siglas en ingés de North American Free Trade Agreement.<br>4.- Es un acuerdo comercial celebrado entre los tres países de América del Norte.<br>5.- Facilita la circulación transfronteriza de bienes y servicios entre los territorios de los tres países firmantes.'
+            };
+
+            const region3 = {
+                title: 'Mercosur',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['Brazil'],
+                    ['Paraguay'],
+                    ['Argentina'],
+                    ['Uruguay'],
+                    ['Suriname'],
+                    ['Guyana'],
+                    ['Venezuela'],
+                    ['Colombia'],
+                    ['Ecuador'],
+                    ['Peru'],
+                    ['Chile'],
+                    ['Bolivia']
+                ],
+                desc: '1.- Cada estado parte tiene un voto, y las decisiones deben ser tomadas por consenso y con la presencia de todos los estados partes.<br>2.- Su objetivo principal es propociar un espacio común que generará oportunidades comerciales y de inversiones.<br>3.- Ha firmado acuerdos de tipo comercial, político o de cooperación con una diversa cantidad de naciones y organismos en los cinco continentes.<br>4.- Venezuela se encuentra suspendida en todos los derechos y obligacione<br>5.- Bolivia se encuentra en proceso de adhesión.'
+            };
+
+            const region4 = {
+                title: 'Comunidad Andina',
+                desc: '',
+                data: [
+                    ['Colombia'],
+                    ['Ecuador'],
+                    ['Peru'],
+                    ['Bolivia']
+                ],
+                desc: '1.- Argentina, Brasil, Chile, Paraguay y Uruguay son países asociados, y España es un país observador.<br>2.- Bolivia, Colombia, Ecuador y Perú son los países miembros.<br>3-. El 26 de mayo de 1969 se suscribió el Acuerdo de Cartagena.<br>4.- Organización Internacional cuyo objetivo es alcanzar un desarrollo integral equilibrado y autónomo.<br>5.- Disminuye la vulnerabilidad externa y mejora la posición de los países miembros en el contexto económico internacional.'
+            };
+
+            const region5 = {
+                title: 'APEC',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['United States'],
+                    ['Canada'],
+                    ['Mexico'],
+                    ['Peru'],
+                    ['Chile'],
+                    ['Russia'],
+                    ['China'],
+                    ['India'],
+                    ['Vietnam'],
+                    ['Japan'],
+                    ['South Korea'],
+                    ['Thailand'],
+                    ['Malaysia'],
+                    ['Indonesia'],
+                    ['Australia'],
+                    ['New Zealand'],
+                    ['Philippines'],
+                    ['Taiwan']
+                ],
+                desc: '1.- La idea de APEC fue abordada públicamente por el ex ministro de Australia Bob Hawke el 31 de enero de 1989.<br>2.- En 1989 comienza como un grupo informal de diálogo a nivel ministerial con 12 miembros fundadores.<br>3.- En 1993 los líderes económicos describen la visión de APEC de "estabiliad, seguridad y prosperidad para nuestros pueblos".<br>4.- En 1998 los ministros de APEC acuerdan un plan de acción para el comercio electrónico.<br>5.- En 2019 se desarrollan dos hojas de ruta importantes relacionadas con el océano para abordar los deshechos marinos y combatir la pesca ilegal no declarada y no reclamentada.'
+            };
+
+            const region6 = {
+                title: 'SADC',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['RD Congo'], // CHECAR!!!!!!!!!!!!!!
+                    ['Tanzania'],
+                    ['Mozambique'],
+                    ['Malawi'],
+                    ['Zambia'],
+                    ['Zimbabwe'],
+                    ['Angola'],
+                    ['Namibia'],
+                    ['Botswana'],
+                    ['South Africa'],
+                    ['Swaziland'],
+                    ['Lesotho'],
+                    ['Madagascar']
+                ],
+                desc: '1.- El desarrollo de la organización de la Unidad Africana fue en 1963.<br>2.- La Unión Africana, la SADC y la NEPAD es una relación de trabajo de estas tres instituciones regionales y continentales clave.<br>3.- En 1992 los jefes de gobierno acordaron transformarla con un enfoque en la integración del desarrollo económico.<br>4.- Se formó para avanzar en la causa de la liberación política nacional en el sur de África.<br>5.- En tratado se firmó para establecer a la SADC como sucesora de la Conferencia de Coordinación del África Meridional (SADCC)'
+            };
+
+            const region7 = {
+                title: 'MCCA',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['Guatemala'], 
+                    ['El Salvador'],
+                    ['Honduras'],
+                    ['Nicaragua'],
+                    ['Costa Rica'],
+                    ['Panama']
+                ],
+                desc: '1.- Se creó a través del Tratado General de Integración Económica Centroamericana.<br>2.- Entró en vigencia el 4 de junio de 1961 para Guatemala, El Salvador y Nicaragua.<br>3.- El 27 de abril de 1962 entró en vigor para Honduras y el 23 de septiembre de 1963 para Costa Rica.<br>4.- Costa Rica ha mantenido una balanza comercial superavitaria con Centroamérica.<br>5.- Centroamérica ha sido también un socio de gran importancia en términos de inversión extranjera directa, percibida por Costa Rica.'
+            };
+
+            const region8 = {
+                title: 'Alianza del pacífico',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['Mexico'], 
+                    ['Colombia'],
+                    ['Peru'],
+                    ['Chile']
+                ],
+                desc: '1.- Se ha convertido en el eje de una nueva forma de hacer negocios en el continente.<br>2.- Uno de sus principales mercado objetivo es el que se extiende en el litoral asiático del pacífico, región fundamental de la economía global.<br>3.- Se cuenta con la presencia en ferias de promoción internacional y comparten embajadas en países asiáticos y africanos.<br>4.- La Alianza del Pacífico constituye la octava potencia económica y la octava potencia exportadora a nivel mundial.<br>5.- Se orienta hacia la modernidad, el pragmatismo y la voluntad política para enfrentar los retos del entorno económico internacional.'
+            };
+
+            const region9 = {
+                title: 'ASEAN',
+                desc: '',
+                data: [
+                    ['Pais'],
+                    ['Indonesia'], 
+                    ['Malaysia'],
+                    ['Philippines'],
+                    ['Brunei Darussalam'],
+                    ['Thailand'],
+                    ['Cambodia'],
+                    ['Vietnam'],
+                    ['Lao'], // CHECAR!!!!!!!!!!!
+                    ['Myanmar']
+                ],
+                desc: '1.- Se estableció el 8 de agosto de 1967 en Bangkok.<br>2.- La carta de ASEAN es una base firme para lograr la comunidad de la ASEAN al proporcionar un estatus legal y un marco institucional.<br>3.- La carta entró en vigor el 15 de diciembre del 2008.<br>4.- La carta de ASEAN se ha convertido en un acuerdo legalmente vinculante entre los 10 estados miembros de la ASEAN.<br>5.- Brinda asistencia mutua en forma de instalaciones de capacitación e investigación en las esferas educativa, profesional, técnica y administrativa.'
+            };
+            
+            
+            // Union Europea
+            $( "#boton1" ).on("click", (event) => {
+                $('#titulo').text(title + region1.title);
+                $('#descripcion').html(region1.desc);
+                dibujarMapa(region1.data);
+            });
+
+            // TLCAN
+            $( "#boton2" ).on("click", (event) => {
+                $('#titulo').text(title + region2.title);
+                $('#descripcion').html(region2.desc);
+                dibujarMapa(region2.data);
+            });
+
+            // Mercosur
+            $( "#boton3" ).on("click", (event) => {
+                $('#titulo').text(title + region3.title);
+                $('#descripcion').html(region3.desc);
+                dibujarMapa(region3.data);
+            });
+
+            // Comunidad Andina
+            $( "#boton4" ).on("click", (event) => {
+                $('#titulo').text(title + region4.title);
+                $('#descripcion').html(region4.desc);
+                dibujarMapa(region4.data);
+            });
+
+            // APEN
+            $( "#boton5" ).on("click", (event) => {
+                $('#titulo').text(title + region5.title);
+                $('#descripcion').html(region5.desc);
+                dibujarMapa(region5.data);
+            });
+
+            // SADC
+            $( "#boton6" ).on("click", (event) => {
+                $('#titulo').text(title + region6.title);                
+                $('#descripcion').html(region6.desc);
+                dibujarMapa(region6.data);
+            });
+
+            // MCCA
+            $( "#boton7" ).on("click", (event) => {
+                $('#titulo').text(title + region7.title);
+                $('#descripcion').html(region7.desc);
+                dibujarMapa(region7.data);
+            });
+
+            // Alianza del pacifico
+            $( "#boton8" ).on("click", (event) => {
+                $('#titulo').text(title + region8.title);
+                $('#descripcion').html(region8.desc);
+                dibujarMapa(region8.data);
+            });
+
+            // ASEAN
+            $( "#boton9" ).on("click", (event) => {
+                $('#titulo').text(title + region9.title);
+                $('#descripcion').html(region9.desc);
+                dibujarMapa(region9.data);
+            });
+            
+        });
+    </script>
+
+  </body>
+</html>
